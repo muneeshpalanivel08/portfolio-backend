@@ -11,9 +11,9 @@ load_dotenv()
 app = Flask(__name__)
 CORS(app)
 
-EMAIL_USER = os.getenv("EMAIL_USER")
-EMAIL_PASS = os.getenv("EMAIL_PASS")
-EMAIL_TO = os.getenv("EMAIL_TO")
+EMAIL_USER = os.environ.get("EMAIL_USER")
+EMAIL_PASS = os.environ.get("EMAIL_PASS")
+EMAIL_TO = os.environ.get("EMAIL_TO")
 
 @app.route("/contact", methods=["POST"])
 def contact():
@@ -62,3 +62,4 @@ def contact():
 
 if __name__ == "__main__":
     app.run(port=5000, debug=True)
+
